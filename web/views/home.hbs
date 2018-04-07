@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bower_components/semantic/dist/semantic.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/video.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Campus Buddy</title>
+</head>
+
+<body>
+    <div class="ui three item menu">
+        <a class="item" id="signUp">Log In / Sign Up</a>
+        <a class="item">Campus Buddy</a>
+        <a class="item">About Us</a>
+    </div>
+    {{!--
+    <div class="homepage-hero-module">
+        <div class="video-container">
+            <div class="filter"></div>
+            <div class="text">
+                <h1>CAMPUS BUDDY</h1>
+            </div>
+            <video autoplay loop class="fillWidth">
+                <source src="video/Street_Art.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                <source src="video/Street_Art.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <div class="poster">
+                <img src="video/Street_Art.jpg" alt="">
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="ui grid">
+        <div class="row">
+            <div class="three wide column category" style="position:sticky">
+                <ul>Category
+                    <li>Web Development</li>
+                    <li>Programming</li>
+                    <li>Art & Music</li>
+                    <li>Something</li>
+                    <li>Something else</li>
+                </ul>
+            </div>
+            <div class="ten wide column">
+
+                
+                    <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="ui card" style="width:60vw;">
+                    <div class="content">
+                        <i class="right floated like icon"></i>
+                        <i class="right floated star icon"></i>
+                        <div class="header">Cute Dog</div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde molestias pariatur laborum? Blanditiis quae delectus aut neque voluptas velit! Blanditiis iusto cum aut, delectus reiciendis inventore magnam pariatur quis asperiores dolores temporibus molestias ducimus labore excepturi ea laboriosam veniam culpa accusantium illum. Non eligendi animi ratione ducimus. Nisi ipsa, quod odio at ad magnam doloribus, error ducimus neque nam asperiores, facilis possimus impedit magni. Ullam esse vel saepe! Cupiditate mollitia distinctio similique rem corrupti beatae necessitatibus dolorum obcaecati illo dolor itaque perferendis rerum deserunt perspiciatis ipsam veniam nisi delectus earum voluptatem placeat dolore, quis molestias dolores iure. Quasi id maiores, adipisci laboriosam explicabo aut tempora officiis, nihil quibusdam quam accusantium. Voluptate pariatur dolor fuga quisquam error beatae nihil eligendi, ab incidunt? Rem, temporibus assumenda blanditiis, odio illum, quo perspiciatis numquam ad amet illo ipsa aut? Tenetur expedita fugit illo itaque dolore quibusdam voluptate laborum, nihil hic voluptatibus, quam aspernatur aliquam optio, necessitatibus pariatur quae. Quod praesentium, voluptatem molestiae id consequuntur laboriosam quam velit ullam asperiores aperiam rerum inventore ipsa, voluptatum blanditiis, dolorum excepturi aliquid. Numquam sint veniam voluptate optio sit sed illum saepe unde, deleniti ex, fuga ducimus a facilis. Fuga natus commodi explicabo, tempore porro autem. Officia, est obcaecati.</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="left floated like">
+                            <i class="like icon"></i>
+                            Like
+                        </span>
+                        <span class="right floated star">
+                            <i class="star icon"></i>
+                            Favorite
+                        </span>
+                    </div>
+                </div>
+                
+                 
+            </div>
+            <div class="three wide column category">
+                <ul>Trending
+                    <li>A really great topic</li>
+                    <li>Another serious topic</li>
+                    <li>A masala Topic</li>
+                    <li>Okay another one here</li>
+                    <li>Another really great topic</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    {{!--
+    <div class="sixteen column wide center aligned">
+        <h1>Welcome to campus buddy</h1>
+    </div>
+    <div class="hidden vertical divider"></div>
+    <button id="signUp"> SIGN UP / LOG IN</button> --}}
+
+</body>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/semantic/dist/semantic.min.js"></script>
+<script src="/bower_components/socket.io-client/dist/socket.io.js"></script>
+<script src="js/home.js"></script>
+<script src="js/video.js"></script>
+
+</html>
