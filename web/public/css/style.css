@@ -1,0 +1,24 @@
+.top_clear{
+    top:10vh;
+    border:1px solid goldenrod;
+    background: ghostwhite;
+    padding: 50px;
+}
+.text-center{
+    text-align:center;
+    top:10vh;
+}
+.hold_options{
+    position: fixed;
+    left:10px;
+    top:20vh;
+}
+.hold_options .item{
+    font-size: 15px;
+    height: 70px;
+}
+.hold_profile{
+    position: fixed;
+    top:10vh;
+    right: 10px;
+}
