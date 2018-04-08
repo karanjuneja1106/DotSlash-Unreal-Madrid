@@ -19,7 +19,11 @@
         <item
             android:id="@+id/nav_file"
             android:icon="@drawable/ic_cloud_download_black_24dp"
-            android:title="File sharing" />
+            android:title="File Uploading" />
+        <item
+            android:id="@+id/nav_down"
+            android:icon="@drawable/ic_file_download_black_24dp"
+            android:title="File Downloading" />
         <item
             android:id="@+id/nav_id"
             android:icon="@drawable/ic_code_black_24dp"
