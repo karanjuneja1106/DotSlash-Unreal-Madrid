@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/bower_components/semantic/dist/semantic.min.css">
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Food Order</title>
+</head>
+
+<body>
+  <!doctype html>
+  <html>
+
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font: 13px Helvetica, Arial;
+      }
+
+      form {
+        background: #000;
+        padding: 3px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      form input {
+        border: 0;
+        padding: 10px;
+        width: 90%;
+        margin-right: .5%;
+      }
+
+      form button {
+        width: 9%;
+        background: rgb(130, 224, 255);
+        border: none;
+        padding: 10px;
+      }
+
+      #messages {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #messages li {
+        padding: 5px 10px;
+      }
+
+      #messages li:nth-child(odd) {
+        background: #eee;
+      }
+      .top_clear{
+        position: fixed;
+        top:20vh;
+        width:100%;
+      }
+      .header{
+        text-align: center;
+      }
+      .text-center{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ui three item menu">
+      <a class="item">Home</a>
+      <a class="item">Campus Buddy</a>
+      <a class="item">Welome User</a>
+    </div>
+  <div class="menuDiv">
+    <div class="ui grid top_clear">
+      <div class="row">
+        <div class="two wide column"></div>
+        <div class="four wide column">
+          <div class="ui card">
+            <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                <div class="header">
+                 Masala Dosa
+                </div>
+                <div class="meta text-center">
+                  love of life
+                </div>
+                <div class="description text-center">
+                  Rs 30
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="ui two buttons">
+                  <div class="ui basic green button dosaA">ADD</div>
+                  <div class="ui basic red button dosaM">MINUS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="four wide column">
+           <div class="ui card">
+            <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                <div class="header">
+                  Egg Rice
+                </div>
+                <div class="meta text-center">
+                  Apetite Friendly
+                </div>
+                <div class="description text-center">
+                  Rs 30
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="ui two buttons">
+                  <div class="ui basic green button eggA">ADD</div>
+                  <div class="ui basic red button eggM">MINUS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="four wide column">
+           <div class="ui card">
+            <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                <div class="header">
+                  Bombay Bhel
+                </div>
+                <div class="meta text-center">
+                  Sexy as ever
+                </div>
+                <div class="description text-center">
+                  Rs 30
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="ui two buttons">
+                  <div class="ui basic green button bhelA ">ADD</div>
+                  <div class="ui basic red button bhelM">MINUS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="two wide column"></div>
+
+      </div>
+    </div>
+    <div class="ui grid orderW">
+      <div class="row">
+        <div class="six wide column"></div>
+        <div class="six wide column order">
+          <div>Dosa</div>
+          <div class="dosaV"></div>
+          <div>Egg</div>
+          <div class="eggV"></div>
+          <div>Bhel</div>
+          <div class="bhelV"></div>
+        </div>
+        <div class="six wide column"></div>
+      </div>
+      <button type="button" id="ordering">ORDER</button>
+    </div>
+  </div>
+    
+    
+
+  
+
+
+
+    <div class="msgDiv hide" >
+      <ul id="messages"></ul>
+
+      <input id="m" autocomplete="off" />
+      <button type="button" id="btn">Send</button>
+    </div>
+
+
+  </body>
+
+  </html>
+</body>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/semantic/dist/semantic.min.js"></script>
+<script src="/bower_components/socket.io-client/dist/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="js/food.js"></script>
+
+</html>

@@ -37,11 +37,14 @@ app.get('/admin',(req,res)=>{
 app.get('/check',(req,res)=>{
     res.render('check.hbs');
 });
-app.get('/food',(req,res)=>{
-    res.render('food.hbs');
+app.get('/userFood',(req,res)=>{
+    res.render('userFood.hbs');
 });
 app.get('/stuff',(req,res)=>{
     res.render('stuff.hbs');
+});
+app.get('/makeStuff',(req,res)=>{
+    res.render('makeStuff.hbs');
 });
 app.get('/post',(req,res)=>{
     res.render('post.hbs');

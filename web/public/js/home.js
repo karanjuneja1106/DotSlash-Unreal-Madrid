@@ -30,12 +30,9 @@ initApp = function () {
                 for(x in store){
                   for(y in store[x]){
                     var z=JSON.parse(store[x][y].blog);
+                    console.log(z);
                     st.push(z);
-                    
-                    
-                  }
-                
-                }
+                }}
                 st.sort((a,b)=>{
                     return a.timeStamp-b.timeStamp;
                 })
