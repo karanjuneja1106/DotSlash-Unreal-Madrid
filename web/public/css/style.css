@@ -15,8 +15,15 @@
 }
 .orderW{
     position: fixed;
-    top:40vh;
+    top:45vh;
+    left:40vw;
     text-align: center;
+}
+.formPlace{
+    position: fixed;
+    top:35vh;
+    left:40vw;
+    
 }
 .rightSegment{
     position: fixed;
