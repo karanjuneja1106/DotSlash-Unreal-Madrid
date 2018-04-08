@@ -13,6 +13,27 @@
     left:10px;
     top:20vh;
 }
+.orderW{
+    position: fixed;
+    top:40vh;
+    text-align: center;
+}
+.rightSegment{
+    position: fixed;
+    right:-470px;
+}
+.leftSegment{
+    position: fixed;
+    left: 40px;
+}
+.stuff_btn{
+    position:fixed;
+    top:-60vh;
+    left:42vw;
+}
+.hide{
+    display: none;
+}
 .hold_options .item{
     font-size: 15px;
     height: 70px;
