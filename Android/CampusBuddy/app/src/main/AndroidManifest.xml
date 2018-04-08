@@ -41,6 +41,10 @@
         <activity
             android:name=".BarcodeActivity"
             android:label="@string/title_activity_barcode"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SellActivity"
+            android:label="@string/title_activity_sell"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
