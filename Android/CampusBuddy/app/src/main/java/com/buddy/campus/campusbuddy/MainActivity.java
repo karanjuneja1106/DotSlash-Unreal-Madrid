@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    private UserInfo fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +34,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,6 +43,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        FragmentManager manager = getSupportFragmentManager();
+        fragment=(UserInfo) manager.findFragmentByTag("UserInfo");
+        if (fragment==null) {
+            fragment = new UserInfo();
+        }
+        manager.beginTransaction().replace(R.id.frame_info, fragment, "Userinfo").commit();
         //NavigationView view=findViewById(R.id.drawer_layout).findViewById(R.id.nav_view);
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -127,17 +127,25 @@ public class MainActivity extends AppCompatActivity
         else if(id == R.id.nav_sell){
             Intent i = new Intent(this,PostAdActivity.class);
             startActivity(i);
-            finish();;
+            ;
         }
         else if(id == R.id.nav_id){
             Intent i = new Intent(this,BarcodeActivity.class);
             startActivity(i);
-            finish();
+
         }
         else if(id == R.id.nav_buy){
             Intent i = new Intent(this,SellActivity.class);
             startActivity(i);
-            finish();
+
+        }
+        else if(id== R.id.nav_file){
+            Intent i = new Intent(this,uploadFile.class);
+            startActivity(i);
+        }
+        else if(id==R.id.nav_down){
+            Intent i = new Intent(this,mapActivity.class);
+            startActivity(i);
         }
         DrawerLayout drawer =findViewById(R.id.drawer_layout);
 

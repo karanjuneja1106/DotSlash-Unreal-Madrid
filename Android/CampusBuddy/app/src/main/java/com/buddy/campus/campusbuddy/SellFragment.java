@@ -157,19 +157,21 @@ public class SellFragment extends Fragment {
 
 
     public class Holder extends RecyclerView.ViewHolder  implements View.OnClickListener{
-        TextView caption,owner;
+        TextView caption,owner,descriptionView;
         ImageView imageView;
         public Holder(View itemView) {
             super(itemView);
+            descriptionView=(TextView) itemView.findViewById(R.id.item_desc);
             caption=(TextView) itemView.findViewById(R.id.item_caption);
             owner=(TextView) itemView.findViewById(R.id.item_owner);
             imageView=(ImageView) itemView.findViewById(R.id.pic);
             itemView.setOnClickListener(this);
         }
 
-        public void bindText(String own,String cap,String fname){
+        public void bindText(String own,String cap,String fname,String description){
             caption.setText(cap);
             owner.setText(own);
+            descriptionView.setText(description);
             storageReference.child(fname).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -206,7 +208,7 @@ public class SellFragment extends Fragment {
         @Override
         public void onBindViewHolder(Holder holder, int position) {
             SellItem item=sellItems.get(position);
-            holder.bindText("Owner: " +item.getmOwner(),"Title: "+item.getmCaption(),item.getImagName());
+            holder.bindText("Owner: " +item.getmOwner(),"Title: "+item.getmCaption(),item.getImagName(),"Desc: "+item.getDescription());
         }
 
         @Override
