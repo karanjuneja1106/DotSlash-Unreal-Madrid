@@ -58,7 +58,7 @@ initApp = function () {
                     </div>
                   </div>`;
                     list.insertAdjacentHTML('afterbegin',template);
-                })
+                }) 
               });
               
               

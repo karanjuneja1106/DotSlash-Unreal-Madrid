@@ -2,7 +2,14 @@ var order={
     dosa:0,
     egg:0,
     bhel:0,
+    phone:0
 };
+var phone=document.querySelector('#phone');
+    phone.addEventListener('change',()=>{
+        order.phone=phone.value;
+    console.dir(phone);
+    })
+    
 
     console.log('this ran')
     var dosaA=document.querySelector('.dosaA');
@@ -64,17 +71,18 @@ var order={
         write();
         
         
-    });
+    }); 
+    
     var orderString;
     console.log(order);
     function write(){
         dosaV.innerHTML=order.dosa;
         eggV.innerHTML=order.egg;
         bhelV.innerHTML=order.bhel;
+        order.phone=
         orderString=JSON.stringify(order,undefined,2);
         console.log(orderString);
     }
-    
     
     orderBtn.addEventListener('click',()=>{
         msgDiv.classList.remove('hide');
@@ -83,10 +91,21 @@ var order={
         m.value=orderString;
     })
     
+    document.addEventListener('load',()=>{
+        msgDiv.classList.add('hide');
+        menuDiv.classList.remove('hide');
+    })
+    
     
     
 var socket=io();
 var btn=document.querySelector('#btn');
+
+
+            socket.emit('user ack',{
+                id:socket.id,
+                msg:'user connected'
+            });
            btn.addEventListener('click',()=>{
                console.log('this ran');
             socket.emit('chat message', $('#m').val());

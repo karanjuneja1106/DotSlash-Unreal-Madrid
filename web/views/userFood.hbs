@@ -30,22 +30,21 @@
         font: 13px Helvetica, Arial;
       }
 
-      form {
-        background: #000;
+      .msgDiv {
         padding: 3px;
         position: fixed;
         bottom: 0;
         width: 100%;
       }
 
-      form input {
+      .msgDiv input {
         border: 0;
         padding: 10px;
         width: 90%;
         margin-right: .5%;
       }
 
-      form button {
+      .msgDiv button {
         width: 9%;
         background: rgb(130, 224, 255);
         border: none;
@@ -65,15 +64,18 @@
       #messages li:nth-child(odd) {
         background: #eee;
       }
-      .top_clear{
+
+      .top_clear {
         position: fixed;
-        top:20vh;
-        width:100%;
+        top: 20vh;
+        width: 100%;
       }
-      .header{
+
+      .header {
         text-align: center;
       }
-      .text-center{
+
+      .text-center {
         text-align: center;
       }
     </style>
@@ -81,118 +83,139 @@
 
   <body>
     <div class="ui three item menu">
-      <a class="item">Home</a>
+      <a class="item" href="/">Home</a>
       <a class="item">Campus Buddy</a>
       <a class="item">Welome User</a>
     </div>
-  <div class="menuDiv">
-    <div class="ui grid top_clear">
-      <div class="row">
-        <div class="two wide column"></div>
-        <div class="four wide column">
-          <div class="ui card">
-            <div class="card">
-              <div class="content">
-                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
-                <div class="header">
-                 Masala Dosa
+    <div class="menuDiv">
+      <div class="ui grid top_clear">
+        <div class="row">
+          <div class="two wide column"></div>
+          <div class="four wide column">
+            <div class="ui card">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="https://placeimg.com/640/480/nature">
+                  <div class="header">
+                    Masala Dosa
+                  </div>
+                  <div class="meta text-center">
+                    love of life
+                  </div>
+                  <div class="description text-center">
+                    Rs 30
+                  </div>
                 </div>
-                <div class="meta text-center">
-                  love of life
-                </div>
-                <div class="description text-center">
-                  Rs 30
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui basic green button dosaA">ADD</div>
-                  <div class="ui basic red button dosaM">MINUS</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="four wide column">
-           <div class="ui card">
-            <div class="card">
-              <div class="content">
-                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
-                <div class="header">
-                  Egg Rice
-                </div>
-                <div class="meta text-center">
-                  Apetite Friendly
-                </div>
-                <div class="description text-center">
-                  Rs 30
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui basic green button eggA">ADD</div>
-                  <div class="ui basic red button eggM">MINUS</div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button dosaA">ADD</div>
+                    <div class="ui basic red button dosaM">MINUS</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="four wide column">
-           <div class="ui card">
-            <div class="card">
-              <div class="content">
-                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
-                <div class="header">
-                  Bombay Bhel
+          <div class="four wide column">
+            <div class="ui card">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="https://placeimg.com/640/480/nature">
+                  <div class="header">
+                    Egg Rice
+                  </div>
+                  <div class="meta text-center">
+                    Apetite Friendly
+                  </div>
+                  <div class="description text-center">
+                    Rs 30
+                  </div>
                 </div>
-                <div class="meta text-center">
-                  Sexy as ever
-                </div>
-                <div class="description text-center">
-                  Rs 30
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui basic green button bhelA ">ADD</div>
-                  <div class="ui basic red button bhelM">MINUS</div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button eggA">ADD</div>
+                    <div class="ui basic red button eggM">MINUS</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="four wide column">
+            <div class="ui card">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="https://placeimg.com/640/480/nature">
+                  <div class="header">
+                    Bombay Bhel
+                  </div>
+                  <div class="meta text-center">
+                    Sexy as ever
+                  </div>
+                  <div class="description text-center">
+                    Rs 30
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button bhelA ">ADD</div>
+                    <div class="ui basic red button bhelM">MINUS</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="two wide column"></div>
+
         </div>
-        <div class="two wide column"></div>
+      </div>
+      <div class="ui grid formPlace">
+        <div class="ui form">
+          <div class="field">
+            <label>Enter your paytm number</label>
+            <input type="number" id="phone">
+          </div>
+        </div>
+      </div>
+      <div class="ui grid orderW">
+        <div class="row">
+          <div class="six wide column"></div>
+          <div class="six wide column order">
+            <div>Dosa
+              <div class="dosaV"></div>
+            </div>
+
+            <div>Egg
+              <div class="eggV"></div>
+            </div>
+
+            <div>Bhel
+              <div class="bhelV"></div>
+            </div>
+
+          </div>
+          <div class="six wide column"></div>
+        </div>
+        <div class="ui animated fade button massive basic teal" tabindex="0" id="ordering">
+          <div class="visible content">ORDER NOW!</div>
+          <div class="hidden content">
+            Take me there
+          </div>
+        </div>
 
       </div>
     </div>
-    <div class="ui grid orderW">
-      <div class="row">
-        <div class="six wide column"></div>
-        <div class="six wide column order">
-          <div>Dosa</div>
-          <div class="dosaV"></div>
-          <div>Egg</div>
-          <div class="eggV"></div>
-          <div>Bhel</div>
-          <div class="bhelV"></div>
-        </div>
-        <div class="six wide column"></div>
-      </div>
-      <button type="button" id="ordering">ORDER</button>
-    </div>
-  </div>
-    
-    
-
-  
 
 
 
-    <div class="msgDiv hide" >
+
+
+
+    <div class="container">
       <ul id="messages"></ul>
+      <div class="msgDiv">
 
-      <input id="m" autocomplete="off" />
-      <button type="button" id="btn">Send</button>
+        <input id="m" autocomplete="off" />
+        <button type="button" id="btn">Send</button>
+      </div>
     </div>
 
 
