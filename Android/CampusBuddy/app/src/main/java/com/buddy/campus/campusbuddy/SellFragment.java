@@ -1,16 +1,20 @@
 package com.buddy.campus.campusbuddy;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,11 +23,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,9 +56,9 @@ public class SellFragment extends Fragment {
     //private ThumbnailDownloader<Holder> mThumbnailDownloader;
 
     // TODO: Rename and change types of parameters
+    private ProgressDialog dialog;
 
-
-
+    StorageReference storageReference=FirebaseStorage.getInstance().getReference();
     int a,b;
     private String mParam1;
     private String mParam2;
@@ -89,14 +98,20 @@ public class SellFragment extends Fragment {
             @Override
             public void onDataLoaded() {
                 recyclerView.setAdapter(new picAdapter(mSellItems));
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
             }
         });
-
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("Loading");
+        dialog.show();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Advertisements");
         final JSONObject[] js = {null};
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                mSellItems.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     final SellItem si = new SellItem();
                     String h = postSnapshot.getValue().toString();
@@ -107,6 +122,8 @@ public class SellFragment extends Fragment {
                             js[0] = new JSONObject(json);
                             si.setmCaption(js[0].getString("TITLE"));
                             si.setmOwner(js[0].getString("USER"));
+                            si.setImagName(js[0].getString("IMG"));
+                            si.setDescription(js[0].getString("DESC"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -114,6 +131,7 @@ public class SellFragment extends Fragment {
 
                     }
                     mSellItems.add(si);
+
                 }
                 listener.onDataLoaded();
             }
@@ -132,36 +150,40 @@ public class SellFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_sell, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.sell_recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
 
 
 
     public class Holder extends RecyclerView.ViewHolder  implements View.OnClickListener{
-        //ImageView imageView;
         TextView caption,owner;
-        //private SellItem mSellItem;
+        ImageView imageView;
         public Holder(View itemView) {
             super(itemView);
-            //imageView=(ImageView) itemView.findViewById(R.id.no_image);
             caption=(TextView) itemView.findViewById(R.id.item_caption);
             owner=(TextView) itemView.findViewById(R.id.item_owner);
+            imageView=(ImageView) itemView.findViewById(R.id.pic);
             itemView.setOnClickListener(this);
-
         }
 
-        public void bind(Drawable drawable) {
-            //imageView.setImageDrawable(drawable);
-        }
-
-        public void bindText(String own,String cap){
+        public void bindText(String own,String cap,String fname){
             caption.setText(cap);
             owner.setText(own);
+            storageReference.child(fname).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(getActivity().getApplicationContext()).load(uri).into(imageView);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Drawable placeholder=getResources().getDrawable(R.drawable.placeholder);
+                    imageView.setImageDrawable(placeholder);
+                }
+            });
         }
-        private void bindGalleryItem(SellItem item){
-            //mSellItem=item;
-        }
+
         @Override
         public void onClick(View v) {
 
@@ -184,11 +206,7 @@ public class SellFragment extends Fragment {
         @Override
         public void onBindViewHolder(Holder holder, int position) {
             SellItem item=sellItems.get(position);
-            holder.bindGalleryItem(item);
-//            Drawable placeholder=getResources().getDrawable(R.drawable.placeholder);
-//            mThumbnailDownloader.queueThumbnail(holder,item.getmUrl(),item.getmId());
-//            holder.bind(placeholder);
-            holder.bindText(item.getmOwner(),item.getmCaption());
+            holder.bindText("Owner: " +item.getmOwner(),"Title: "+item.getmCaption(),item.getImagName());
         }
 
         @Override
@@ -220,37 +238,6 @@ public class SellFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-//            if (query==null){
-//                if (a!=1){
-//                    mProgress=new ProgressDialog(getActivity());
-//                    mProgress.setIndeterminate(true);
-//                    mProgress.setCancelable(false);
-//                    mProgress.setMessage("Loading..........Page "+a);
-//                    mProgress.show();}
-//                else
-//                {
-//                    mProgress=new ProgressDialog(getActivity());
-//                    mProgress.setIndeterminate(true);
-//                    mProgress.setCancelable(false);
-//                    mProgress.setMessage("Loading....");
-//                    mProgress.show();}}
-//            else{
-//                if (a!=1){
-//                    mProgress=new ProgressDialog(getActivity());
-//                    mProgress.setIndeterminate(true);
-//                    mProgress.setCancelable(false);
-//                    mProgress.setMessage("Loading Search results....Page "+a);
-//                    mProgress.show();}
-//                else
-//                {
-//                    mProgress=new ProgressDialog(getActivity());
-//                    mProgress.setIndeterminate(true);
-//                    mProgress.setCancelable(false);
-//                    mProgress.setMessage("Loading Search Results....");
-//                    mProgress.show();}
-//
-//            }
-
             super.onPreExecute();
         }
 
@@ -262,7 +249,7 @@ public class SellFragment extends Fragment {
 
         @Override
         protected void onPostExecute(List<SellItem> list) {
-            //mProgress.dismiss();
+
             mSellItems=list;
             setupAdapter();
         }

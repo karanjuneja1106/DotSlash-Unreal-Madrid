@@ -50,4 +50,24 @@ public class SellItem {
     public void setmUrl(String mUrl) {
         this.mUrl = mUrl;
     }
+
+    public String getImagName() {
+        return imagName;
+    }
+
+    public void setImagName(String imagName) {
+        this.imagName = imagName;
+    }
+
+    private String imagName;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String description;
 }
