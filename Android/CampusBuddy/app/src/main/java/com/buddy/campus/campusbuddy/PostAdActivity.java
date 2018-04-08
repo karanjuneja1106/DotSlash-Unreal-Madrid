@@ -44,7 +44,7 @@ public class PostAdActivity extends AppCompatActivity {
     StorageReference storageRef = storage.getReferenceFromUrl("gs://campusbuddy-d4179.appspot.com");
 
     EditText mTitleText,mDescText;
-    Button mButton,mImgButton;
+    Button mButton;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +54,10 @@ public class PostAdActivity extends AppCompatActivity {
         mButton = findViewById(R.id.upload);
         mTitleText = findViewById(R.id.product_title);
         mDescText = findViewById(R.id.product_desc);
-        mImgButton=findViewById(R.id.photo_sel);
+
         imageView=findViewById(R.id.imageView);
 
-        mImgButton.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectImage();
