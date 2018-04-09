@@ -18,7 +18,9 @@
 * Socket.io for chat
 * SemanticsUI and jQuery for front-end
 * firebase as backend for both Web-App and Android-App for User Authentication, realtime database, cloud file storage
-
+>
+>#### WebApp Hosted Link
+* https://secret-cliffs-95254.herokuapp.com/
 
 ## Developed By:-
 #### @karanjuneja1106 @Tanishka1997 @littlestar642
